@@ -1,0 +1,12 @@
+<?php
+$messageData = $block->getMessageData();
+?>
+<div class="block block-order-details-view">
+    <div class="admin__page-section-title">
+        <strong><?=__('Message information')?></strong>
+    </div>
+    <table class="data-table admin__table-primary edit-order-table">
+        <tr class="header"><th><?=__('Email')?></th><th><?=__('Message')?></th></tr>
+        <tr><td><?= __($messageData['emai']);?></td><td><?= __($messageData['message']); ?></td></tr>
+    </table>
+</div>

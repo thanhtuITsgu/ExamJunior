@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magenest\Junior\Api\RulesRepositoryInterface" type="Magenest\Junior\Model\RulesRepositoryModel" />
+    <!--Report WishLisht-->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="magenest_rules_listing_data_source" xsi:type="string">
+                    Magenest\Junior\Model\ResourceModel\MagenestRules\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Magenest\Junior\Model\ResourceModel\MagenestRules\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magenest_rules</argument>
+            <argument name="resourceModel" xsi:type="string">Magenest\Junior\Model\ResourceModel\MagenestRules</argument>
+        </arguments>
+    </virtualType>
+    <!--Plugin-->
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="Special Price" type="Magenest\Junior\Plugin\Catalog\Model\Product"/>
+    </type>
+    <type name="Magento\Catalog\Pricing\Render\FinalPriceBox">
+        <plugin name="cataloghideprice_finalpricebox" type="Magenest\Junior\Plugin\FinalPriceBox"/>
+    </type>
+    <preference for="Magenest\Junior\Api\JuniorInterFace" type="Magenest\Junior\Model\Myclass" />
+<!--    <type name="Magenest\Junior\Controller\Index\Index">-->
+<!--        <arguments>-->
+<!--            <argument name="juniorInterFace" xsi:type="object">Magenest\Junior\Model\Myclass</argument>-->
+<!--        </arguments>-->
+<!--    </type>-->
+</config>

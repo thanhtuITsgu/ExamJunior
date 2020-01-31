@@ -1,0 +1,76 @@
+<!--Use 'stepCode' as id attribute-->
+<li class="container-check" data-bind="fadeVisible: isVisible, attr: { id: stepCode }">
+    <div class="step-title" data-bind="i18n: stepTitle" data-role="title"></div>
+    <div id="checkout-step-title"
+         class="step-content"
+         data-role="content">
+        <p>The customer is <span data-bind="if: !isLogedIn">not</span> Logged-in</p>
+        <form data-bind="submit: navigateToNextStep">
+            <div class="container-form">
+                <p>Thông tin đăng nhập</p>
+                <p>Email/Số điện thoại</p>
+                <input style="margin-bottom: 10px;" type="text" placeholder="abc@gmail.com"/>
+                <span>Mật khẩu</span>
+                <a style="float: right">Quên mật khẩu</a>
+                <input style="margin-top: 10px;margin-bottom: 10px" type="password" placeholder="abcdez"/>
+                <div class="container-tag" style="text-align: center">
+                    <button class="login">Đăng Nhập</button><br>
+                    <a>Đăng ký</a><br>
+                    <a>Thanh toán không cần đăng nhập</a><br>
+                    <p>Hoặc đăng nhập bằng</p>
+                    <button class="social-facebook">Fackbook</button>
+                    <button class="social-google">Gmail</button>
+                    <a>Quay lại giỏ hàng</a>
+                </div>
+            </div>
+            <div class="actions-toolbar" style="width: 50%">
+                <div class="primary" style="width: 100%; display:flex;justify-content: space-between;">
+                    <button id="backviewcart" style="margin: 0;background-color: #FFFFFF;color: #1a1a1a;">
+                        <span>Behind</span>
+                    </button>
+                    <div style="margin-top: 5px"><span><strong>Total: </strong></span><span class="step-price" data-bind="text: getValue()"></span></div>
+                    <button id="continue" data-role="opc-continue" type="submit" class="button action continue primary" style="margin: 0;background-color: #1a1a1a;color: #FFFFFF;">
+                        <span>Continue</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</li>
+<style>
+    .container-form{
+        display: block;
+        width: 50%;
+        line-height: 30px;
+    }
+    .container-form span{
+        margin-bottom: 5px;
+    }
+    .container-tag{
+        margin-top: 10px;
+        line-height: 40px;
+    }
+    .container-tag button{
+        border-radius: 20px;
+        box-shadow: none;
+    }
+    .login{
+        width: 100%;
+        background-color: red;
+        color: white;
+        box-shadow: initial;
+    }
+    .social-facebook{
+        width: 49%;
+        background-color: #3A5A97;
+        color: #fff;
+    }
+    .social-google{
+        width: 49%;
+        background-color: #dd4b39;
+        color: #fff;
+    }
+    .payment-method-content .actions-toolbar{
+        display: none;
+    }
+</style>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.container">
+            <referenceContainer name="header-wrapper">
+                <block class="Magenest\Junior\Block\CountDown" name="Add_Count_Down"
+                       template="Magenest_Junior::countdown.phtml" cacheable="false">
+                    <!--<arguments>
+                        <argument name="logo_img_width" xsi:type="number">189</argument>
+                        <argument name="logo_img_height" xsi:type="number">64</argument>
+                    </arguments>-->
+                </block>
+            </referenceContainer>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">magenest_rules_report_listing.magenest_rules_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <!--<buttons>
+            <button name="add">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Add New Customer</label>
+            </button>
+        </buttons>-->
+        <spinner>rules_columns</spinner>
+        <deps>
+            <dep>magenest_rules_report_listing.magenest_rules_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="magenest_rules_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Magenest_Junior::Rules</aclResource>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="magenest_rules_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <exportButton name="export_button"/>
+        <filterSearch name="fulltext"/>
+        <filters name="listing_filters"/>
+        <massaction name="listing_massaction" component="Magento_Ui/js/grid/tree-massactions">
+            <action name="delete">
+                <settings>
+                    <confirm>
+                        <message translate="true">Are you sure you want to delete the selected customers?</message>
+                        <title translate="true">Delete items</title>
+                    </confirm>
+                    <url path="customer/index/massDelete"/>
+                    <type>delete</type>
+                    <label translate="true">Delete</label>
+                </settings>
+            </action>
+          <!--  <action name="subscribe">
+                <settings>
+                    <url path="customer/index/massSubscribe"/>
+                    <type>subscribe</type>
+                    <label translate="true">Subscribe to Newsletter</label>
+                </settings>
+            </action>
+            <action name="unsubscribe">
+                <settings>
+                    <confirm>
+                        <message translate="true">Are you sure you want to unsubscribe the selected customers from the newsletter?</message>
+                        <title translate="true">Unsubscribe from Newsletter</title>
+                    </confirm>
+                    <url path="customer/index/massUnsubscribe"/>
+                    <type>unsubscribe</type>
+                    <label translate="true">Unsubscribe from Newsletter</label>
+                </settings>
+            </action>
+            <action name="assign_to_group">
+                <settings>
+                    <type>assign_to_group</type>
+                    <label translate="true">Assign a Customer Group</label>
+                    <actions class="Magento\Customer\Ui\Component\MassAction\Group\Options"/>
+                </settings>
+            </action>
+            <action name="edit">
+                <settings>
+                    <callback>
+                        <target>editSelected</target>
+                        <provider>customer_listing.customer_listing.customer_columns_editor</provider>
+                    </callback>
+                    <type>edit</type>
+                    <label translate="true">Edit</label>
+                </settings>
+            </action>-->
+        </massaction>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="rules_columns">
+        <selectionsColumn name="ids" sortOrder="10">
+            <settings>
+                <indexField>id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="id" sortOrder="20">
+            <settings>
+                <label translate="true">ID</label>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+        <column name="title" sortOrder="30">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Title</label>
+            </settings>
+        </column>
+        <column name="status" sortOrder="40">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Status</label>
+            </settings>
+        </column>
+        <column name="last_added" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date" sortOrder="100">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Last Added</label>
+            </settings>
+        </column>
+        <column name="rule_type" sortOrder="50">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Rules Type</label>
+            </settings>
+        </column>
+        <column name="conditions_serialized" sortOrder="60">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Text Serialized</label>
+            </settings>
+        </column>
+        <column name="last_after_load" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date" sortOrder="70">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Last After Load</label>
+            </settings>
+        </column>
+        <column name="last_after_save" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date" sortOrder="80">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Last After Save</label>
+            </settings>
+        </column>
+        <!--<actionsColumn name="actions" class="Magento\Customer\Ui\Component\Listing\Column\Actions">
+            <settings>
+                <indexField>id</indexField>
+            </settings>
+        </actionsColumn>-->
+    </columns>
+</listing>

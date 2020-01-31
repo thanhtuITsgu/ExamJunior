@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magenest. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magenest" translate="label" sortOrder="100">
+            <label>Magenest</label>
+        </tab>
+
+        <section id="clockconfiguation" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <class>separator-top</class>
+            <label>Clock Configuation</label>
+            <tab>magenest</tab>
+            <resource>Magenest_Junior::clock_configuation</resource>
+            <group id="clock" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Clock Management</label>
+                <field id="title_clock" translate="label" type="text" sortOrder="40" showInDefault="1" showInStore="1"
+                       showInWebsite="1">
+                    <label>Title Clock</label>
+                </field>
+                <field id="size_clock" translate="label" type="select" sortOrder="50" showInDefault="1" showInStore="1"
+                       showInWebsite="1">
+                    <label>Size Clock</label>
+                    <source_model>Magenest\Junior\Model\Config\Source\SizeClock</source_model>
+                </field>
+                <field id="color_clock" translate="label" type="text" sortOrder="60" showInDefault="1" showInStore="1"
+                       showInWebsite="1">
+                    <label>Color Clock</label>
+                    <comment><![CDATA[Color Clock]]></comment>
+                    <frontend_model>Magenest\Junior\Block\Color</frontend_model> <!-- Our block for attaching color picker to text box -->
+                </field>
+                <field id="text_clock" translate="label" type="text" sortOrder="70" showInDefault="1" showInStore="1"
+                       showInWebsite="1">
+                    <label>Text Clock</label>
+                    <comment><![CDATA[Text Clock]]></comment>
+                    <frontend_model>Magenest\Junior\Block\Color</frontend_model> <!-- Our block for attaching color picker to text box -->
+                </field>
+                <field id="type_clock" translate="label" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Type Clock</label>
+                    <frontend_model>Magenest\Junior\Block\Adminhtml\Form\Field\Ranges</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

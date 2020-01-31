@@ -1,0 +1,13 @@
+.admin__menu .level-0.item-clock-parent > a:before  {
+    content: url('../images/rsz_images.jpg');
+}
+.admin__menu .level-0.item-clock-parent a {
+    padding: 3px;
+}
+.admin__menu .submenu .item-clock a {
+    color: orangered;
+}
+
+.admin__menu .submenu .item-configuation a {
+    color: orangered;
+}

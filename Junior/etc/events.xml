@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <!--<event name="model_load_after">
+        <observer name="Model Load After" instance="Magenest\Junior\Observer\ModelLoadAfter" />
+    </event>
+    <event name="model_save_after">
+        <observer name="Model Save After" instance="Magenest\Junior\Observer\ModelSaveAfter" />
+    </event>
+    <event name="model_save_before">
+        <observer name="Model Save Before" instance="Magenest\Junior\Observer\ModelSaveBefore" />
+    </event>-->
+    <event name="controller_action_catalog_product_save_entity_after">
+        <observer name="Product Save After" instance="Magenest\Junior\Observer\ProductSaveAfter" />
+    </event>
+    <event name="catalog_product_load_after">
+        <observer name="change_custom_option" instance="Magenest\Junior\Observer\ChangeCustomOption" />
+    </event>
+    <event name="checkout_cart_product_add_before">
+        <observer name="add_message" instance="Magenest\Junior\Observer\AddMessage" />
+    </event>
+    <event name="sales_order_place_after">
+        <observer name="magenest_junior_place_order_success" instance="Magenest\Junior\Observer\Quote\AfterPlaceOrder" />
+    </event>
+</config>

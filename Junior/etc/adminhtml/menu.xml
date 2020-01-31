@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation=
+        "urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+
+        <add id="Magenest_Junior::Clock_Parent"
+             title="    "
+             module="Magenest_Junior"
+             sortOrder="60"
+             resource="Magenest_Junior::Clock_Parent"
+        />
+        <!-- START: new node -->
+        <add id="Magenest_Junior::Clock"
+             title="Countdown Management"
+             module="Magenest_Junior"
+             sortOrder="15"
+             resource="Magenest_Junior::Clock"
+             parent="Magenest_Junior::Clock_Parent"
+             action="junior/clock"
+        />
+        <add id="Magenest_Junior::Configuation"
+             title="Clock Configuation"
+             module="Magenest_Junior"
+             sortOrder="15"
+             resource="Magenest_Junior::Configuation"
+             parent="Magenest_Junior::Clock_Parent"
+             action="adminhtml/system_config/edit/section/multiplewishlist"
+        />
+    </menu>
+</config>
